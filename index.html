@@ -1,48 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="styles/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="src/styles/style.css" />
     <title>Document</title>
-</head>
-<body>
-    <h1 class="main-header"></h1>
-    <h2 class="search-header"></h2>
-        <section class="search-section">
-            <div class="input-div">
-                <input type="text" class="park-input">
-                <!-- <button></button> -->
-                <input type="text" class="brewery-input">
-                <!-- <button></button> -->
-                <input type="text" class="meetups-input">
-                <!-- <button></button> -->
-                <input type="text" class="concerts-input">
-                <!-- <button></button> -->
-            </div>
+  </head>
+  <section class="container">
+  <body>
+    <h1 class="main-header">Welcome To Nashville!</h1>
+    <!-- Input fields and search buttons -->
+    <h2 class="search-header">Search Nashville</h2>
+    <section class="search-section">
+      <div class="input-div">
+        <input type="text" class="park-input" placeholder="Parks"/><button id="park-button">Search</button>
+        <br>
+        <input type="text" class="brewery-input" placeholder="Breweries"/><button id="brewery-button">Search</button>
+        <br>
+        <input type="text" class="meetups-input" placeholder="Meetups"/><button id="meetups-button">Search</button>
+        <br>
+        <input type="text" class="concerts-input" placeholder="Concerts"/><button id="concerts-button">Search</button>
+        
+      </div>
+    </section>
 
-        </section>
+    <!-- Results output section -->
+    <h2 class="results-header">Search Results</h2>
+    <section class="results-section">
+      <div class="results-div">
+      </div>
+    </section>
 
-        <h2 class="results-header"></h2>
-        <section class="results-section">
-            <div class="results-div">
+    <!-- Itinerary section -->
+    <h2 class="itinerary-header">My Itinerary</h2>
+    <section class="itinerary-section"></section>
 
-            </div>
-        </section>
-
-        <h2 class="itinerary-header"></h2>
-        <section class="itinerary-section">
-            
-        </section>
-
-
-
-
+</section>
 
     <script src="src/scripts/parksAPI.js"></script>
     <script src="src/scripts/breweriesAPI.js"></script>
     <script src="src/scripts/concertsAPI.js"></script>
     <script src="src/scripts/meetupsAPI.js"></script>
-</body>
+    <script src="src/scripts/DOMcomponents.js"></script>
+  </body>
 </html>
