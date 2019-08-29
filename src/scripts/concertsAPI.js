@@ -1,79 +1,30 @@
-function concertsFunction (){ fetch("https://app.ticketmaster.com/discovery/v2/events.json?city=nashville&keyword=$rap&apikey=4AHnrESIHc8kroHO7hy3JMlm3Yo7uNMm")
-    .then(venue => venue.json())
+// ____________________ Click Event ________________________
+
+const cmConcertsButton = document.querySelector("#concerts-button")
+cmConcertsButton.addEventListener("click", function(){
+
+const concertInput = document.querySelector(".concerts-input").value
+console.log(concertInput)
+
+// ____________ remove text from input field and previous searches ____________
+document.querySelector(".concerts-input").value = ""
+document.querySelector(".results-div").innerHTML = ""
+
+// ___________ fetch call from api _____________
+
+fetch(`https://app.ticketmaster.com/discovery/v2/events.json?city=nashville&keyword=${concertInput}&apikey=4AHnrESIHc8kroHO7hy3JMlm3Yo7uNMm`)
+    .then(response => response.json())
     .then(parsedConcerts => {
-        console.table(parsedConcerts)
+        console.log(parsedConcerts)
+
+        
+// ______________________ loop of information from API _______________________
+        
+            for (i = 0; i < parsedConcerts._embedded.events.length; i++){
+            console.log(parsedConcerts._embedded.events[i].name)
+            document.querySelector(".results-div").innerHTML += 
+            `<p> ${parsedConcerts._embedded.events[i].name}</p>`;           
+            }            
+        })
     })
-}
-
-// const cmContent = document.querySelector("container")
-
-// // function for main title header
-
-// function cmMainHeaderFunction(){
-//     let cmMainHeaderString = ""
-//     cmMainHeaderString += `<h1 class ="cmPageTitle">Welcome to Nashville!</h1>`
-//     console.log(cmMainHeaderString)
-//     return cmMainHeaderString
-//   }
-
-// //Function for second header
-
-// function cmSearchHeaderFunction() {
-//     let cmSearchHeaderString = ""
-//     cmSearchHeaderString += 
-//     `<h2 class = "search-header"> Search for stuff to do today </h2>`
-//     return cmSearchHeaderString
-//   };
-
-// // function for the search section 
-
-// function cmSearchSection(){
-//     let cmMainSearchSectionString =""
-//     cmMainSearchSectionString += `<section class = "search-section> 
-//         <div class= "input-div">
-//             <input type="text" class="park-input">
-//     <button></button>
-//             <input type="text" class="brewery-input">
-//     <button></button>
-//             <input type="text" class="meetups-input">
-//     <button></button>
-//             <input type="text" class="concerts-input">
-//     <button></button>
-//         </div>
-//         </section>`
-//         return cmMainSearchSectionString
-//   };
-
-// function cmResultsFunction(){
-//     let resultsHeaderString = ""
-//     resultsHeaderString += `<h2 class="results-header">Results</h2>`
-//     return resultsHeaderString
-//   };
-
-// function cmResultsSectionFunction(){
-//     let cmResultsSectionString = ""
-//     cmResultsSectionString += `<section class="results-section">
-//     <div class="results-div">
-
-//     </div>
-// </section>`
-// }  ;
-
-// function cmItineraryHeaderFunction(){
-//     let cmItineraryHeaderString = ""
-//     cmItineraryHeaderString += `<h2 class="itinerary-header">My itinerary</h2>
-//         <section class="itinerary-section">
-            
-//         </section>`
-// }
-  
-// cmContent.innerhtml =
-// cmMainHeaderFunction() +
-// cmSearchHeaderFunction() +
-// cmSearchSection() +
-// cmResultsFunction() +
-// cmResultsSectionFunction() +
-// cmItineraryHeaderFunction()
-
-
-
+    
