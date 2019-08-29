@@ -13,8 +13,9 @@ meetUpsButton.addEventListener("click", function () {
         .then(events => events.json())
         .then(parsedevents => {
             // console.log(parsedevents)
-        })
-    document.querySelector("meetUps-input")
+            document.querySelector(".results-div").innerHTML=(parsedevents)
+    })
+      
     
     // const personName = document.querySelector("#fullName").value
     // const personAddress = document.querySelector("#address").value
