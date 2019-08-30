@@ -1,4 +1,4 @@
-// ____________________ Click Event ________________________
+// ____________________ Click Event _____________________
 
 const cmConcertsButton = document.querySelector("#concerts-button")
 cmConcertsButton.addEventListener("click", function(){
