@@ -13,6 +13,7 @@ jwparksbutton.addEventListener("click",function(){
 document.querySelector(".park-input").value= ""
 document.querySelector(".results-div").innerHTML = ""
 
+
 // GET /posts?id=1&id=2
 // http://localhost:8088/parks?dog_park=Yes
 
@@ -26,7 +27,17 @@ document.querySelector(".results-div").innerHTML = ""
         for(let i=0; i<parsedparks.length; i++){
             console.log(parsedparks.park_name)
             document.querySelector(".results-div").innerHTML += 
-            `<p>${parsedparks[i].park_name}</p>`
+            `<p>${parsedparks[i].park_name}</p>` 
         }
     })
 })
+
+// if(stateInputValue.includes(" ")){
+//     stateInputValue.replace("_", " ")
+// }
+
+// function myFunction() {
+//     var str = document.getElementById("demo").innerHTML; 
+//     var res = str.replace(/blue/g, "red");
+//     document.getElementById("demo").innerHTML = res;
+//   }
