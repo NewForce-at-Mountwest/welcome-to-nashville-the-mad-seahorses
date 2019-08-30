@@ -1,21 +1,25 @@
-document.querySelector("#brewery-button")
+// Add Event Listener
+document.querySelector("#brewery-button").addEventListener("click", function() {
+ 
+    // Select the input value and give it a variable
+  const breweryInput = document.querySelector(".brewery-input").value;
+  console.log(breweryInput);
 
+//   Clear the input and results field
+  document.querySelector(".brewery-input").value = ""
+document.querySelector(".results-div").innerHTML = ""
 
-fetch(
-  "https://api.openbrewerydb.org/breweries?by_state=tennessee&by_city=nashville"
-)
-  .then(response => response.json())
-  .then(allBreweries => {
-    console.log(allBreweries);
-    // allBreweries.forEach(name => {
-    //    //Print foods to DOM
-    //    document.querySelector("#container").innerHTML += `<div>
-    //       <h3>${allBreweries.name}</h3>
-    //       </div>
-    //       `
-    // })
-  });
+  // Call to API
+  fetch(
+    `https://api.openbrewerydb.org/breweries?by_state=tennessee&by_city=nashville&by_name=${breweryInput}`)
+    .then(response => response.json())
+    .then(allBreweries => {
+      console.log(allBreweries);
 
-// Add input field and search button
+      // Loop through the array to print results based on input
+      for (i = 0; i < allBreweries.length; i++)
 
-// Filter search result info to display name, type and address of brewery
+    //   Print the results to the DOM
+        document.querySelector(".results-div").innerHTML += `<p>${allBreweries[i].name}</p>`;
+    });
+});
